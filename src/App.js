@@ -14,7 +14,8 @@ function App() {
   ])
   const [sumCounters, setSumCounters] = React.useState([])
   const [nextCounter, setNextCounter] = React.useState("")
-  console.log(sumCounters)
+  console.log(counters)
+  console.log(nextCounter)
 
   React.useEffect(() => {
     // Everytime counters change...
@@ -24,10 +25,14 @@ function App() {
       return {counter: counter.counter, quantity: sumQueue(counter.queue)}
     }))
 
+  }, [counters])
+
+  React.useEffect(() => {
+
     // Determine the next counter with the lowest quantity of items
     getNextCounter(sumCounters)
 
-  }, [counters])
+  }, [sumCounters])
 
   // Function tot get the sum of items in the queue for the counter
   function sumQueue(counterQueue) {
@@ -73,7 +78,11 @@ function App() {
   // Function that sets the input as quantity
   function checkout() {
 
-    setQuantity(input)
+    for (let i = 0; i < counters.length; i++) {
+      if (counters[i].counter == nextCounter) {
+        counters[i].queue.push(parseInt(input))
+      }
+    }
 
   }
 
