@@ -1,7 +1,8 @@
 import React from "react";
 
-export default function lodi() {
+export default function Hello() {
     return (
-        <div>'Hello'</div>
+
+        <div>Hello</div>
     )
 }
