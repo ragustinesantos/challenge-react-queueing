@@ -1,7 +1,8 @@
 import React from "react";
-import Hello from "../components/hello";
 import Counter from "../components/counter";
 import Queue from "../components/queue";
+import veg1 from "../static files/veg1.png"
+import veg2 from "../static files/veg2.png"
 import "./App.css";
 
 function App() {
@@ -138,9 +139,24 @@ function App() {
 
   })
 
+  // Conditionally render the background image
+  function styleBackground() {
+    return {backgroundImage: `url(${veg1})`}
+  }
+
   return (
-    <main>
-      <div>
+    <body style={styleBackground()}>
+
+      <nav className="nav">
+        <div className="nav--description">
+          <span>React Interview Challenge</span>
+        </div>
+        <div className="nav--description2">
+          <span>Queueing</span>
+        </div>
+      </nav>
+
+      <div className="app--container">
         <div className="app--inputArea">
           <input
             type="number"
@@ -149,6 +165,7 @@ function App() {
             className="app--coInput"
             onChange={handleInput}
             value={input}
+            min={0}
           />
           <button 
             className="app--coBtn"
@@ -159,7 +176,13 @@ function App() {
           {renderCounter}
         </div>
       </div>
-    </main>
+      
+      <footer>
+          <div>Developed by Raymond Santos</div>
+          <div>©2023</div>
+      </footer>
+
+    </body>
   )
 
 }

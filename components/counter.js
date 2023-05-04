@@ -1,5 +1,7 @@
 import React from "react";
 import Cart from "./cart";
+import cashier from "../static files/cashier.png"
+
 
 export default function Counter(props) {
 
@@ -14,7 +16,8 @@ export default function Counter(props) {
 
         <div className="counter--container">
             <div className="counter--counter">
-                {props.counter}
+                <div className="counter--number">{props.counter}</div>
+                <img className="counter--cashier" src={cashier} alt="Cashier" />
             </div>
             <div className="counter--cart">
                 {renderCart}
